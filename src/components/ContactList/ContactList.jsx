@@ -35,7 +35,7 @@ const ContactList = () => {
     <Ul>
       {filterContact.map(({ id, name, phone }) => (
         <Li key={id}>
-          <BsPersonCircle />
+          <BsPersonCircle style={{ width: 40, height: 40 }} />
           {name} : {phone}
           <Button
             onClick={() => deleteContacts(id)}

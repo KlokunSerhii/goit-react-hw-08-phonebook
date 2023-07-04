@@ -1,21 +1,24 @@
 import styled from 'styled-components';
 
-export const Ul = styled.ul`
+export const TitleList = styled.h1`
+  padding-top: 40px;
+  padding-bottom: 40px;
+  font-size: 50px;
+  font-weight: 700;
+  font-style: italic;
+  color: #fff;
+`;
+export const Div = styled.div`
   display: flex;
   flex-direction: column;
-  width: 600px;
-  margin-top: 50px;
-  padding: 0 20px;
-`;
-export const Li = styled.li`
-  display: flex;
-  justify-content: space-between;
-  padding: 0 30px;
-  margin-bottom: 10px;
-  font-size: 25px;
-  font-weight: 600;
   align-items: center;
-  color: #fff;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 0 10px;
+
+  padding-bottom: 20px;
+  border: 1px solid;
+  border-radius: 10px;
 `;
 export const Button = styled.button`
   display: flex;
@@ -42,4 +45,9 @@ export const Button = styled.button`
       color: #454141;
     }
   }
+`;
+export const DivFlex = styled.div`
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
 `;

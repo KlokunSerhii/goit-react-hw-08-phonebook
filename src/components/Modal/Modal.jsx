@@ -20,6 +20,7 @@ import { toastOptions } from '../../options/toastOptions';
 import { closeModal } from 'redux/modal/sliceModal';
 import { nanoid } from '@reduxjs/toolkit';
 import * as contactsSelectors from 'redux/contacts/contactsSelectors';
+import background from '../../img/BGmodal.jpg';
 
 const modalRood = document.querySelector('#modal-root');
 
@@ -61,7 +62,15 @@ function Modal() {
   };
 
   return createPortal(
-    <Overlay onClick={handlerBackdropClick}>
+    <Overlay
+      onClick={handlerBackdropClick}
+      style={{
+        backgroundImage: `url(${background})`,
+        ackgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
       <ModalDiv>
         <Title>Phonebook</Title>
 

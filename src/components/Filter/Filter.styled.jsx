@@ -17,7 +17,7 @@ export const Label = styled.label`
 `;
 export const Input = styled.input`
   width: 370px;
-  height: 25px;
+  height: 40px;
   padding: 10px 45px;
   border-radius: 5px;
   outline: none;

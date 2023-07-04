@@ -30,7 +30,7 @@ const Label = styled.label`
 
 const Input = styled(Field)`
   width: 500px;
-  height: 25px;
+  height: 40px;
   font-size: 26px;
   padding: 7px 15px;
   margin-top: 10px;
@@ -67,6 +67,9 @@ const Button = styled.button`
   position: absolute;
   right: 35px;
   bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 45px;
   height: 45px;
   border-radius: 10px;
@@ -81,8 +84,8 @@ const Button = styled.button`
     fill: #454141;
   }
   svg {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     color: rgb(152, 140, 140);
     &: hover {
       color: #454141;
