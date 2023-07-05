@@ -1,17 +1,20 @@
-import ContactsScreen from 'Screens/ContactsScreen';
-import LoginScreen from 'Screens/LoginScreen';
-import RegisterScreen from 'Screens/RegisterScreen';
 import { Route, Routes } from 'react-router-dom';
+
+import ContactsViews from 'Views/ContactsViews';
+import LoginViews from 'Views/LoginViews';
+import RegisterViews from 'Views/RegisterViews';
 import SharedLayout from './SharedLayout/SharedLayout';
+import HomeViews from 'Views/HomeViews';
 
 const App = () => {
   return (
     <Routes>
       <Route path="/" element={<SharedLayout />}>
-        <Route index element={<LoginScreen />} />
-        <Route path="register" element={<RegisterScreen />} />
+        <Route index element={<HomeViews />} />
+        <Route path="/login" element={<LoginViews />} />
+        <Route path="/register" element={<RegisterViews />} />
+        <Route path="/contacts" element={<ContactsViews />} />
       </Route>
-      <Route path="/contacts" element={<ContactsScreen />} />
     </Routes>
   );
 };

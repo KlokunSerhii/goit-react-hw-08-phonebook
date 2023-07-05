@@ -21,9 +21,8 @@ export const Input = styled.input`
   padding: 10px 45px;
   border-radius: 5px;
   outline: none;
-  border: 1px solid black;
 
   &:focus {
-    border: 4px solid #454141;
+    border: 2px solid rgba(255, 191, 0, 0.84);
   }
 `;

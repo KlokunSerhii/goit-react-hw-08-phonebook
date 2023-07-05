@@ -1,61 +1,56 @@
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
+import { Field, Form } from 'formik';
 
 export const Div = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
   justify-content: center;
-  height: 100vh;
+  height: 90vh;
 `;
 export const Title = styled.h1`
   padding-bottom: 70px;
   font-size: 50px;
   font-weight: 700;
   font-style: italic;
-  color: #000;
+  color: #4b0082;
 `;
 
-export const Form = styled.form`
+export const Forma = styled(Form)`
   display: flex;
   align-items: center;
   justify-content: center;
 
   flex-direction: column;
 `;
-export const Input = styled.input`
+export const Label = styled.label`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+`;
+
+export const Input = styled(Field)`
+  width: 370px;
   height: 40px;
-  width: 400px;
-  padding: 15px;
+  font-size: 16px;
+  padding: 7px 15px;
+  margin-top: 10px;
   border-radius: 5px;
+  color: #4b0082;
   outline: none;
-  margin-bottom: 20px;
   &:focus {
-    border: 1px solid rgba(0, 51, 255, 0.84);
+    border: 2px solid rgba(255, 191, 0, 0.84);
   }
 `;
 export const ButtonSubmit = styled.button`
   height: 40px;
   width: 150px;
-  color: #000000;
+  color: #4b0082;
   outline: none;
   border-radius: 5px;
   font-size: 24px;
   :hover {
     font-weight: 500;
-    color: rgba(0, 51, 255, 0.84);
-  }
-`;
-export const Button = styled(NavLink)`
-  margin-top: 15px;
-  color: #000000;
-  font-size: 16px;
-`;
-export const Text = styled.span`
-  font-weight: 700;
-
-  :hover {
-    text-decoration: underline;
-    color: rgba(0, 51, 255, 0.84);
+    color: rgba(255, 191, 0, 0.84);
   }
 `;

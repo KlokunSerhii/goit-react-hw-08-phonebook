@@ -1,7 +1,7 @@
 import Register from 'components/Register/Register';
 import React from 'react';
 
-function RegisterScreen() {
+function RegisterViews() {
   return (
     <>
       <Register />
@@ -9,4 +9,4 @@ function RegisterScreen() {
   );
 }
 
-export default RegisterScreen;
+export default RegisterViews;

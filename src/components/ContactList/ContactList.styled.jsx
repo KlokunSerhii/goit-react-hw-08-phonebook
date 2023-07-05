@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Ul = styled.ul`
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   width: 600px;
   margin-top: 50px;
   padding: 0 20px;
@@ -15,7 +15,7 @@ export const Li = styled.li`
   font-size: 25px;
   font-weight: 600;
   align-items: center;
-  color: #fff;
+  color: #4b0082;
 `;
 export const Button = styled.button`
   display: flex;
@@ -25,21 +25,12 @@ export const Button = styled.button`
   height: 45px;
   border-radius: 10px;
   border: none;
-  background: radial-gradient(
-    circle,
-    rgba(238, 174, 202, 1) 100%,
-    rgba(148, 187, 233, 1) 100%
-  );
-  :hover {
-    box-shadow: 10px 17px 36px -11px rgba(0, 51, 255, 0.84);
-    fill: #454141;
-  }
   svg {
-    width: 25px;
-    height: 25px;
-    color: rgb(152, 140, 140);
+    width: 35px;
+    height: 35px;
+    color: #4b0082;
     &: hover {
-      color: #454141;
+      color: #8b008b;
     }
   }
 `;

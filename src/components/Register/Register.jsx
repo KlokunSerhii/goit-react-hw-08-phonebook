@@ -1,63 +1,47 @@
 import React from 'react';
-import { Formik } from 'formik';
+import { ErrorMessage, Formik } from 'formik';
 import {
   Div,
-  Form,
+  Forma,
   Input,
   ButtonSubmit,
   Title,
-  Button,
-  Text,
+  Label,
 } from './Register.styled';
-
-import background from '../../img/BGregister.jpg';
-import { NavLink } from 'react-router-dom';
+import { SignupSchemaRegister } from 'options/validForm';
 
 function Register() {
+  const email = '';
+  const password = '';
+  const login = '';
+
+  const handleSubmitRegister = ({ email, password, login }, { resetForm }) => {
+    resetForm();
+  };
+
   return (
-    <Div
-      style={{
-        backgroundImage: `url(${background})`,
-        ackgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
-    >
+    <Div>
       <Title>Давайте знайомитись</Title>
-      <Formik initialValues={{ email: '', password: '', login: '' }}>
-        {({ values, errors, touched, handleChange, handleBlur }) => (
-          <Form>
-            <Input
-              type="login"
-              name="login"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.login}
-            />
-            <Input
-              type="email"
-              name="email"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.email}
-            />
-            {errors.email && touched.email && errors.email}
-            <Input
-              type="password"
-              name="password"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.password}
-            />
-            {errors.password && touched.password && errors.password}
-            <ButtonSubmit type="submit">
-              <NavLink to="contacts">Зареєструватися</NavLink>
-            </ButtonSubmit>
-            <Button to="/">
-              Є акаунт?<Text> Увійти</Text>
-            </Button>
-          </Form>
-        )}
+      <Formik
+        initialValues={{ email, password, login }}
+        validationSchema={SignupSchemaRegister}
+        onSubmit={handleSubmitRegister}
+      >
+        <Forma>
+          <Label>
+            <Input type="text" name="login" placeholder="login" />
+          </Label>
+          <ErrorMessage name="login" />
+          <Label>
+            <Input type="email" name="email" placeholder="email" />
+          </Label>
+          <ErrorMessage name="email" />
+          <Label>
+            <Input type="text" name="password" placeholder="password" />
+          </Label>
+          <ErrorMessage name="password" />
+          <ButtonSubmit type="submit">Зареєструватися</ButtonSubmit>
+        </Forma>
       </Formik>
     </Div>
   );

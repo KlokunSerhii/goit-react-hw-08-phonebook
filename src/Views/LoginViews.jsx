@@ -1,7 +1,7 @@
 import Login from 'components/Login/Login';
 import React from 'react';
 
-function LoginScreen() {
+function LoginViews() {
   return (
     <>
       <Login />
@@ -9,4 +9,4 @@ function LoginScreen() {
   );
 }
 
-export default LoginScreen;
+export default LoginViews;

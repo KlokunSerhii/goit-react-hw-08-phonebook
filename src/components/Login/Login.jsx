@@ -1,55 +1,40 @@
 import React from 'react';
-import { Formik } from 'formik';
-import {
-  Div,
-  Form,
-  Input,
-  ButtonSubmit,
-  Title,
-  Button,
-  Text,
-} from './Login.styled';
-import background from '../../img/BG.jpg';
-import { NavLink } from 'react-router-dom';
+import { ErrorMessage, Formik } from 'formik';
+import { Div, Forma, Input, ButtonSubmit, Title, Label } from './Login.styled';
+import { SignupSchemaLogin } from 'options/validForm';
 
 function Login() {
+  const email = '';
+  const password = '';
+
+  const handleSubmitLogin = ({ email, password }, { resetForm }) => {
+    console.log(email);
+    console.log(password);
+    resetForm();
+  };
   return (
-    <Div
-      style={{
-        backgroundImage: `url(${background})`,
-        ackgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
-    >
+    <Div>
       <Title>Раді знову Вас бачити :)</Title>
-      <Formik initialValues={{ email: '', password: '' }}>
-        {({ values, errors, touched, handleChange, handleBlur }) => (
-          <Form>
-            <Input
-              type="email"
-              name="email"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.email}
-            />
-            {errors.email && touched.email && errors.email}
-            <Input
-              type="password"
-              name="password"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.password}
-            />
-            {errors.password && touched.password && errors.password}
-            <ButtonSubmit type="submit">
-              <NavLink to="contacts">Увійти</NavLink>
-            </ButtonSubmit>
-            <Button to="register">
-              Немає акаунту?<Text> Зареєструватися</Text>
-            </Button>
-          </Form>
-        )}
+      <Formik
+        initialValues={{ email, password }}
+        validationSchema={SignupSchemaLogin}
+        onSubmit={handleSubmitLogin}
+      >
+        <Forma>
+          <Label>
+            <Input type="email" name="email" placeholder="email" />
+          </Label>
+
+          <ErrorMessage name="email" />
+
+          <Label>
+            <Input type="password" name="password" placeholder="password" />
+          </Label>
+
+          <ErrorMessage name="password" />
+
+          <ButtonSubmit type="submit">Увійти</ButtonSubmit>
+        </Forma>
       </Formik>
     </Div>
   );

@@ -32,20 +32,22 @@ const ContactList = () => {
   };
 
   return (
-    <Ul>
-      {filterContact.map(({ id, name, phone }) => (
-        <Li key={id}>
-          <BsPersonCircle style={{ width: 40, height: 40 }} />
-          {name} : {phone}
-          <Button
-            onClick={() => deleteContacts(id)}
-            aria-label="Delete contact"
-          >
-            <BsFillPersonDashFill />
-          </Button>
-        </Li>
-      ))}
-    </Ul>
+    <div>
+      <Ul>
+        {filterContact.map(({ id, name, phone }) => (
+          <Li key={id}>
+            <BsPersonCircle style={{ width: 40, height: 40 }} />
+            {name} : {phone}
+            <Button
+              onClick={() => deleteContacts(id)}
+              aria-label="Delete contact"
+            >
+              <BsFillPersonDashFill />
+            </Button>
+          </Li>
+        ))}
+      </Ul>
+    </div>
   );
 };
 ContactList.prototype = {

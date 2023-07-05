@@ -12,6 +12,7 @@ export const SignupSchema = Yup.object().shape({
       ' Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer'
     )
     .required('Please enter a Name'),
+
   phone: Yup.string()
     .min(5, 'Too Short!')
     .matches(
@@ -19,4 +20,31 @@ export const SignupSchema = Yup.object().shape({
       'Phone number must be digits and can contain spaces, dashes, parentheses and can start with +'
     )
     .required('Please enter a Number'),
+});
+
+export const SignupSchemaRegister = Yup.object().shape({
+  login: Yup.string()
+    .min(2, 'Too Short!')
+    .max(50, 'Too Long!')
+    .required('Please enter your login'),
+
+  password: Yup.string()
+    .min(2, 'Too Short!')
+    .max(50, 'Too Long!')
+    .required('Please enter your password'),
+
+  email: Yup.string()
+    .email('invalid email')
+    .required('Please enter your email'),
+});
+
+export const SignupSchemaLogin = Yup.object().shape({
+  password: Yup.string()
+    .min(2, 'Too Short!')
+    .max(50, 'Too Long!')
+    .required('Please enter your password'),
+
+  email: Yup.string()
+    .email('invalid email')
+    .required('Please enter your email'),
 });
