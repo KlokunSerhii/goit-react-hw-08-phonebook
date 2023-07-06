@@ -9,13 +9,17 @@ import {
   Label,
 } from './Register.styled';
 import { SignupSchemaRegister } from 'options/validForm';
-
+import { useDispatch } from 'react-redux';
+import { register } from 'redux/auth/operations';
 function Register() {
   const email = '';
   const password = '';
-  const login = '';
+  const name = '';
 
-  const handleSubmitRegister = ({ email, password, login }, { resetForm }) => {
+  const dispatch = useDispatch();
+
+  const handleSubmitRegister = ({ email, password, name }, { resetForm }) => {
+    dispatch(register({ email, password, name }));
     resetForm();
   };
 
@@ -23,15 +27,15 @@ function Register() {
     <Div>
       <Title>Давайте знайомитись</Title>
       <Formik
-        initialValues={{ email, password, login }}
+        initialValues={{ email, password, name }}
         validationSchema={SignupSchemaRegister}
         onSubmit={handleSubmitRegister}
       >
         <Forma>
           <Label>
-            <Input type="text" name="login" placeholder="login" />
+            <Input type="text" name="name" placeholder="login" />
           </Label>
-          <ErrorMessage name="login" />
+          <ErrorMessage name="name" />
           <Label>
             <Input type="email" name="email" placeholder="email" />
           </Label>

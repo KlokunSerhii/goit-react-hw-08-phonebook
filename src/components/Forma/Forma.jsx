@@ -12,17 +12,17 @@ import * as contactsSelectors from 'redux/contacts/contactsSelectors';
 
 function Form() {
   const name = '';
-  const phone = '';
+  const number = '';
 
   const data = useSelector(contactsSelectors.selectContacts);
   const dispatch = useDispatch();
 
-  const handleSubmit = ({ name, phone }, { resetForm }) => {
+  const handleSubmit = ({ name, number }, { resetForm }) => {
     const find = data.find(
       element => element.name.toLowerCase() === name.toLowerCase()
     );
     if (!find) {
-      dispatch(addContacts({ id: nanoid(), name, phone }));
+      dispatch(addContacts({ id: nanoid(), name, number }));
       toast.success('Contact added', toastOptions);
       resetForm();
       return;
@@ -33,7 +33,7 @@ function Form() {
   return (
     <div>
       <Formik
-        initialValues={{ name, phone }}
+        initialValues={{ name, number }}
         validationSchema={SignupSchema}
         onSubmit={handleSubmit}
       >
@@ -43,9 +43,9 @@ function Form() {
           </Label>
           <ErrorMessage name="name" />
           <Label>
-            <Input type="tel" name="phone" placeholder="Number" />
+            <Input type="tel" name="number" placeholder="Number" />
           </Label>
-          <ErrorMessage name="phone" />
+          <ErrorMessage name="number" />
           <Button type="submit" aria-label="add contact">
             <BsFillPersonPlusFill />
           </Button>

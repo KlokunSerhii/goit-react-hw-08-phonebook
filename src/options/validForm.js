@@ -13,7 +13,7 @@ export const SignupSchema = Yup.object().shape({
     )
     .required('Please enter a Name'),
 
-  phone: Yup.string()
+  number: Yup.string()
     .min(5, 'Too Short!')
     .matches(
       validNumber,
@@ -23,7 +23,7 @@ export const SignupSchema = Yup.object().shape({
 });
 
 export const SignupSchemaRegister = Yup.object().shape({
-  login: Yup.string()
+  name: Yup.string()
     .min(2, 'Too Short!')
     .max(50, 'Too Long!')
     .required('Please enter your login'),

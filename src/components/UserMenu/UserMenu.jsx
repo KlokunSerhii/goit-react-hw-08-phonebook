@@ -1,20 +1,18 @@
 import React from 'react';
-import { Container } from './UserMenu.styled';
-// import { useDispatch, useSelector } from 'react-redux';
+import { Container, ButtonSubmit, Span } from './UserMenu.styled';
+import { useDispatch } from 'react-redux';
+import { useAuth } from 'huks/auth';
+import { logout } from 'redux/auth/operations';
 
 function UserMenu() {
-  // const dispatch = useDispatch();
-  // const name = useSelector(authSelectors.getUsername);
-  // const avatar = defaultAvater;
+  const dispatch = useDispatch();
+  const { user } = useAuth();
   return (
     <Container>
-      {/* <img src={avatar} alt="" /> */}
-      <span>Раді вітати, {}</span>
-      <button
-      // onClick={dispatch(authOperations.logOut)}
-      >
+      <Span>Раді вітати, {user}</Span>
+      <ButtonSubmit type="button" onClick={() => dispatch(logout())}>
         Вийти
-      </button>
+      </ButtonSubmit>
     </Container>
   );
 }

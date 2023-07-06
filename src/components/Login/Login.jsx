@@ -2,14 +2,16 @@ import React from 'react';
 import { ErrorMessage, Formik } from 'formik';
 import { Div, Forma, Input, ButtonSubmit, Title, Label } from './Login.styled';
 import { SignupSchemaLogin } from 'options/validForm';
+import { useDispatch } from 'react-redux';
+import { login } from 'redux/auth/operations';
 
 function Login() {
   const email = '';
   const password = '';
+  const dispatch = useDispatch();
 
   const handleSubmitLogin = ({ email, password }, { resetForm }) => {
-    console.log(email);
-    console.log(password);
+    dispatch(login({ email, password }));
     resetForm();
   };
   return (

@@ -1,9 +1,7 @@
-// import { useSelector } from 'react-redux';
-// import { selectIsLoggedIn } from 'redux/auth/authSelectors';
 import { MainNav, MainNavLink } from './Navigation.styled';
-
-const Navigation = isLoggedIn => {
-  // const isLoggedIn = useSelector(selectIsLoggedIn);
+import { useAuth } from 'huks/auth';
+const Navigation = () => {
+  const { isLoggedIn } = useAuth();
 
   return (
     <MainNav>

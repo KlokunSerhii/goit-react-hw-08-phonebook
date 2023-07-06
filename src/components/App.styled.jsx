@@ -11,7 +11,6 @@ export const Div = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  ${'' /* height: 100%; */}
   margin: 0 auto;
   padding: 0 10px;
   background: radial-gradient(

@@ -16,8 +16,6 @@ export const MainNavLink = styled(NavLink)`
   font-size: 24px;
   color: #4b0082;
 
-  ${'' /* transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1); */}
-
   :hover,
   :focus {
     color: rgba(255, 191, 0, 0.84);

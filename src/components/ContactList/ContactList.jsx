@@ -34,10 +34,10 @@ const ContactList = () => {
   return (
     <div>
       <Ul>
-        {filterContact.map(({ id, name, phone }) => (
+        {filterContact.map(({ id, name, number }) => (
           <Li key={id}>
             <BsPersonCircle style={{ width: 40, height: 40 }} />
-            {name} : {phone}
+            {name} : {number}
             <Button
               onClick={() => deleteContacts(id)}
               aria-label="Delete contact"
@@ -53,7 +53,7 @@ const ContactList = () => {
 ContactList.prototype = {
   contacts: PropTypes.arrayOf(
     PropTypes.shape({
-      phone: PropTypes.number.isRequired,
+      number: PropTypes.number.isRequired,
       name: PropTypes.string.isRequired,
       id: PropTypes.string.isRequired,
     })
