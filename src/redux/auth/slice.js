@@ -38,7 +38,6 @@ const authSlice = createSlice({
       state.isRefreshing = true;
     },
     [refreshUser.fulfilled]: (state, { payload }) => {
-      console.log(payload)
       state.user = payload;
       state.isLoggedIn = true;
       state.isRefreshing = false;
@@ -50,4 +49,3 @@ const authSlice = createSlice({
 });
 
 export default authSlice.reducer;
-//     
