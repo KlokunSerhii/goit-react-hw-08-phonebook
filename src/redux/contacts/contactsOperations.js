@@ -3,6 +3,8 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 
+
+
 export const fetchContacts = createAsyncThunk(
   'contacts/fetchContacts',
   async (_, { rejectWithValue }) => {
@@ -17,10 +19,9 @@ export const fetchContacts = createAsyncThunk(
 
 export const addContacts = createAsyncThunk(
   'contacts/addContacts',
-  async ({ id, name, number }, { rejectWithValue }) => {
+  async ({ name, number }, { rejectWithValue }) => {
     try {
       const response = await axios.post('/contacts', {
-        id,
         name,
         number,
       });

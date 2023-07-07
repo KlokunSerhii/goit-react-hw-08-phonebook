@@ -7,10 +7,10 @@ import { logout } from 'redux/auth/operations';
 function UserMenu() {
   const dispatch = useDispatch();
   const { user } = useAuth();
-
+console.log(useAuth())
   return (
     <Container>
-      <Span>Раді вітати, {user}</Span>
+      <Span>Раді вітати, {user.name}</Span>
       <ButtonSubmit type="button" onClick={() => dispatch(logout())}>
         Вийти
       </ButtonSubmit>
