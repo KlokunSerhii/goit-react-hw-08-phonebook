@@ -7,6 +7,8 @@ import { logout } from 'redux/auth/operations';
 function UserMenu() {
   const dispatch = useDispatch();
   const { user } = useAuth();
+  console.log(user);
+
   return (
     <Container>
       <Span>Раді вітати, {user}</Span>
