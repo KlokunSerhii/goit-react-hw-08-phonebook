@@ -10,35 +10,43 @@ const authSlice = createSlice({
     isRefreshing: false,
   },
   extraReducers: {
-        [register.fulfilled] (state, { payload })  {
-          state.user = payload.user;
-          state.token = payload.token;
-          state.isLoggedIn = true;
-        },
-    
-        [login.fulfilled] (state, { payload }) {
-          state.user = payload.user;
-          state.token = payload.token;
-          state.isLoggedIn = true;
-        },
-    
-        [logout.fulfilled] (state) {
-          state.user = { email: null, name: null };
-          state.token = null;
-          state.isLoggedIn = false;
-        },
-    
-        [refreshUser.pending] (state)  {
-          state.isRefreshing = true;
-        },
-        [refreshUser.fulfilled] (state, { payload }) {
-          state.user = payload;
-          state.isLoggedIn = true;
-          state.isRefreshing = false;
-        },
-        [refreshUser.rejected] (state)  {
-          state.isRefreshing = false;
-        },}
+    [register.pending]: state => state,
+    [register.fulfilled]: (state, { payload }) => {
+      state.user = payload.user;
+      state.token = payload.token;
+      state.isLoggedIn = true;
+    },
+    [register.rejected]: state => state,
+
+    [login.pending]: state => state,
+    [login.fulfilled]: (state, { payload }) => {
+      state.user = payload.user;
+      state.token = payload.token;
+      state.isLoggedIn = true;
+    },
+    [login.rejected]: state => state,
+
+    [logout.pending]: state => state,
+    [logout.fulfilled]: state => {
+      state.user = { email: null, name: null };
+      state.token = null;
+      state.isLoggedIn = false;
+    },
+    [logout.rejected]: state => state,
+
+    [refreshUser.pending]: state => {
+      state.isRefreshing = true;
+    },
+    [refreshUser.fulfilled]: (state, { payload }) => {
+      console.log(payload)
+      state.user = payload;
+      state.isLoggedIn = true;
+      state.isRefreshing = false;
+    },
+    [refreshUser.rejected]: state => {
+      state.isRefreshing = false;
+    },
+  }
 });
 
 export default authSlice.reducer;
