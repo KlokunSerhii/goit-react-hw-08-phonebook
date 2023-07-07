@@ -19,7 +19,7 @@ const App = () => {
   }, [dispatch]);
 
   return (
-    !isRefreshing && (
+    <> {!isRefreshing && (
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<HomeViews />} />
@@ -28,7 +28,8 @@ const App = () => {
           <Route path="/contacts" element={<ContactsViews />} />
         </Route>
       </Routes>
-    )
+    )}</>
+   
   );
 };
 
