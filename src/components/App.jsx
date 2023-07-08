@@ -1,5 +1,4 @@
 import { Route, Routes } from 'react-router-dom';
-import { Dna } from 'react-loader-spinner';
 import ContactsViews from 'Views/ContactsViews';
 import LoginViews from 'Views/LoginViews';
 import RegisterViews from 'Views/RegisterViews';
@@ -11,6 +10,8 @@ import { refreshUser } from 'redux/auth/operations';
 import { useAuth } from 'huks/auth';
 import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRoute';
+import { AppLoader } from './Loader/Loader';
+import { Loader } from './App.styled';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -21,14 +22,9 @@ const App = () => {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <Dna
-      visible={true}
-      height="80"
-      width="80"
-      ariaLabel="dna-loading"
-      wrapperStyle={{}}
-      wrapperClass="dna-wrapper"
-    />
+    <Loader>
+      <AppLoader />
+    </Loader>
   ) : (
     <Routes>
       <Route path="/" element={<SharedLayout />}>

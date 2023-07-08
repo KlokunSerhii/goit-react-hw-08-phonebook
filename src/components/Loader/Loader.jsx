@@ -1,18 +1,26 @@
-import { MagnifyingGlass } from 'react-loader-spinner';
+import { FallingLines, Bars } from 'react-loader-spinner';
 
-function Loader() {
+export function ContactsLoader() {
   return (
-    <MagnifyingGlass
+    <FallingLines
+      color="#4b0082"
+      width="100"
       visible={true}
-      height="80"
-      width="80"
-      ariaLabel="MagnifyingGlass-loading"
-      wrapperStyle={{}}
-      wrapperClass="MagnifyingGlass-wrapper"
-      glassColor="#c0efff"
-      color="#e15b64"
+      ariaLabel="falling-lines-loading"
     />
   );
 }
 
-export default Loader;
+export function AppLoader() {
+  return (
+    <Bars
+      height="80"
+      width="80"
+      color="#4b0082"
+      ariaLabel="bars-loading"
+      wrapperStyle={{}}
+      wrapperClass=""
+      visible={true}
+    />
+  );
+}

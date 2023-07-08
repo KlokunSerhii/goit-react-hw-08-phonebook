@@ -6,7 +6,7 @@ import ContactList from 'components/ContactList/ContactList';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchContacts } from 'redux/contacts/contactsOperations';
 import * as contactsSelectors from '../redux/contacts/contactsSelectors';
-import Loader from 'components/Loader/Loader';
+import { ContactsLoader } from 'components/Loader/Loader';
 
 function ContactsViews() {
   const isLoading = useSelector(contactsSelectors.selectIsLoading);
@@ -35,7 +35,7 @@ function ContactsViews() {
         >
           <TitleList>Contacts</TitleList>
           <Filter />
-          {isLoading && <Loader />}
+          {isLoading && <ContactsLoader />}
           {error && <b>{error}</b>}
           <ContactList />
         </div>

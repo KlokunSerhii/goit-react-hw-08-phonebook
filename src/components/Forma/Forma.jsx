@@ -1,13 +1,12 @@
 import { Formik, ErrorMessage } from 'formik';
 import { BsFillPersonPlusFill } from 'react-icons/bs';
-import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
+import { nanoid } from '@reduxjs/toolkit';
+import { useToast } from '@chakra-ui/react';
 
 import { SignupSchema } from '../../options/validForm';
 import { Label, Forma, Input, Button } from './Forma.styled';
 import { addContacts } from 'redux/contacts/contactsOperations';
-import { toastOptions } from '../../options/toastOptions';
-import { nanoid } from '@reduxjs/toolkit';
 import * as contactsSelectors from 'redux/contacts/contactsSelectors';
 
 function Form() {
@@ -16,6 +15,7 @@ function Form() {
 
   const data = useSelector(contactsSelectors.selectContacts);
   const dispatch = useDispatch();
+  const toast = useToast();
 
   const handleSubmit = ({ name, number }, { resetForm }) => {
     const find = data.find(
@@ -23,11 +23,25 @@ function Form() {
     );
     if (!find) {
       dispatch(addContacts({ id: nanoid(), name, number }));
-      toast.success('Contact added', toastOptions);
+      toast({
+        title: 'Add contact.',
+        description: `Your contact ${name} has been added.`,
+        status: 'success',
+        duration: 3000,
+        isClosable: true,
+        position: 'top',
+      });
       resetForm();
       return;
     }
-    toast.error(' Contact already in contacts.', toastOptions);
+    toast({
+      title: 'Add contact.',
+      description: `${name} already in contacts.`,
+      status: 'error',
+      duration: 3000,
+      isClosable: true,
+      position: 'top',
+    });
   };
 
   return (

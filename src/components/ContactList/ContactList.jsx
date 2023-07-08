@@ -2,15 +2,15 @@ import { BsFillPersonDashFill, BsPersonCircle } from 'react-icons/bs';
 import PropTypes from 'prop-types';
 import { removeContacts } from 'redux/contacts/contactsOperations';
 import { useDispatch, useSelector } from 'react-redux';
-import { toast } from 'react-toastify';
 import * as contactsSelectors from 'redux/contacts/contactsSelectors';
 
 import { Button, Li, Ul } from './ContactList.styled';
-import { toastOptions } from '../../options/toastOptions';
+import { useToast } from '@chakra-ui/react';
 
 const ContactList = () => {
   const { filter } = useSelector(state => state.filter);
   const data = useSelector(contactsSelectors.selectContacts);
+  const toast = useToast();
 
   const dispatch = useDispatch();
 
@@ -26,9 +26,16 @@ const ContactList = () => {
 
   const filterContact = getVisibleContacts();
 
-  const deleteContacts = id => {
+  const deleteContacts = (id, name) => {
+    toast({
+      title: 'Сontact deleted!.',
+      description: `Your contact ${name} deleted.`,
+      status: 'success',
+      duration: 3000,
+      isClosable: true,
+      position: 'top',
+    });
     dispatch(removeContacts(id));
-    toast.error('Сontact deleted!', toastOptions);
   };
 
   return (
@@ -39,7 +46,7 @@ const ContactList = () => {
             <BsPersonCircle style={{ width: 40, height: 40 }} />
             {name} : {number}
             <Button
-              onClick={() => deleteContacts(id)}
+              onClick={() => deleteContacts(id, name)}
               aria-label="Delete contact"
             >
               <BsFillPersonDashFill />

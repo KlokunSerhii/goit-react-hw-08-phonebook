@@ -16,7 +16,7 @@ function Login() {
   };
   return (
     <Div>
-      <Title>Раді знову Вас бачити :)</Title>
+      <Title>Glad to see you again :)</Title>
       <Formik
         initialValues={{ email, password }}
         validationSchema={SignupSchemaLogin}
@@ -35,7 +35,7 @@ function Login() {
 
           <ErrorMessage name="password" />
 
-          <ButtonSubmit type="submit">Увійти</ButtonSubmit>
+          <ButtonSubmit type="submit">LogIn</ButtonSubmit>
         </Forma>
       </Formik>
     </Div>

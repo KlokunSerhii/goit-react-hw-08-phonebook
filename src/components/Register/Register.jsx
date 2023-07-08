@@ -11,6 +11,7 @@ import {
 import { SignupSchemaRegister } from 'options/validForm';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
+
 function Register() {
   const email = '';
   const password = '';
@@ -25,7 +26,7 @@ function Register() {
 
   return (
     <Div>
-      <Title>Давайте знайомитись</Title>
+      <Title>Hello, let's get to know each other</Title>
       <Formik
         initialValues={{ email, password, name }}
         validationSchema={SignupSchemaRegister}
@@ -44,7 +45,7 @@ function Register() {
             <Input type="text" name="password" placeholder="password" />
           </Label>
           <ErrorMessage name="password" />
-          <ButtonSubmit type="submit">Зареєструватися</ButtonSubmit>
+          <ButtonSubmit type="submit">Register</ButtonSubmit>
         </Forma>
       </Formik>
     </Div>

@@ -1,5 +1,11 @@
 import React from 'react';
-import { Container, ButtonSubmit, Span } from './UserMenu.styled';
+import {
+  Container,
+  ButtonSubmit,
+  Span,
+  Icon,
+  UserName,
+} from './UserMenu.styled';
 import { useDispatch } from 'react-redux';
 import { useAuth } from 'huks/auth';
 import { logout } from 'redux/auth/operations';
@@ -9,9 +15,12 @@ function UserMenu() {
   const { user } = useAuth();
   return (
     <Container>
-      <Span>Раді вітати, {user.name}</Span>
+      <Span>
+        Hello,
+        <Icon /> <UserName>{user.name}</UserName>
+      </Span>
       <ButtonSubmit type="button" onClick={() => dispatch(logout())}>
-        Вийти
+        Logout
       </ButtonSubmit>
     </Container>
   );
