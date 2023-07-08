@@ -1,16 +1,16 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import Notiflix from 'notiflix';
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
+const message = Notiflix.Notify;
 
-// klokuns@gmail.com
 const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 const clearAuthHeader = token => {
   axios.defaults.headers.common.Authorization = '';
 };
-
 export const register = createAsyncThunk(
   'auth/register',
   async (credentials, thunkAPI) => {
@@ -19,6 +19,23 @@ export const register = createAsyncThunk(
       setAuthHeader(response.data.token);
       return response.data;
     } catch (e) {
+      message.failure(
+        '😡 Sorry, something went wrong. This user may not exist. Please try again',
+        {
+          width: '280px',
+          position: 'center-top',
+          distance: '10px',
+          opacity: 0.8,
+          borderRadius: '10px',
+          timeout: 3000,
+          messageMaxLength: 110,
+          backOverlay: false,
+          plainText: true,
+          showOnlyTheLastOne: false,
+          clickToClose: true,
+          pauseOnHover: true,
+        }
+      );
       return thunkAPI.rejectWithValue(e.message);
     }
   }
@@ -32,6 +49,23 @@ export const login = createAsyncThunk(
       setAuthHeader(response.data.token);
       return response.data;
     } catch (e) {
+      message.failure(
+        '😡 Sorry, something went wrong. Maybe this user already exists. Please try again',
+        {
+          width: '280px',
+          position: 'center-top',
+          distance: '10px',
+          opacity: 0.8,
+          borderRadius: '10px',
+          timeout: 3000,
+          messageMaxLength: 110,
+          backOverlay: false,
+          plainText: true,
+          showOnlyTheLastOne: false,
+          clickToClose: true,
+          pauseOnHover: true,
+        }
+      );
       return thunkAPI.rejectWithValue(e.message);
     }
   }
